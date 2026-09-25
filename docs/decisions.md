@@ -26,6 +26,9 @@ Rows dated "≤ 2026-09-25" were taken in the original plan, before the log was 
 | 2026-09-25 | Django 5.2 LTS | Long-term support to April 2028 | Django 6.0 (shorter support window) |
 | 2026-09-25 | Email uniqueness: stored lowercased, `unique`, plus a `CHECK (email = lower(email))` — no `citext` | Django removed its citext fields in 5.1; `USERNAME_FIELD` must be a plain unique field | `citext` extension; functional unique index on `Lower(email)` (fails Django's auth check) |
 | 2026-09-25 | Custom `User` model created in Phase 0 | Swapping the user model after the first `migrate` forces a database reset | Creating it in Phase 2 |
+| 2026-09-25 | Neon **direct** connection (no pooler) for dev, tests and prod | The pooler holds connections open, blocking test-database teardown; long-running Django pools its own via `CONN_MAX_AGE` | Neon pooled endpoint |
+| 2026-09-25 | Next.js 16.3 + React 19.2 + Tailwind v4 (CSS-first config) | Current stable versions; v4 needs no `tailwind.config.js` | Tailwind v3 |
+| 2026-09-25 | API client returns `Result<T>` instead of throwing | TypeScript forces every page to handle the error state (rule 9) | try/catch at every call site |
 
 **Image standard (fill in on Day 3):** photographer ____ · dimensions 1600×2000 (4:5),
 WebP, neutral backdrop · naming `{product-slug}-{1..3}.webp`, `-1` is the primary image.
